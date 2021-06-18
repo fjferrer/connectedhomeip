@@ -63,7 +63,7 @@ public:
 
     bool HasPeerAddress() const { return mPeerAddress.IsInitialized(); }
     Transport::PeerAddress GetPeerAddress() const { return mPeerAddress; }
-    ByteSpan GetCSRNonce() const {return mCSRNonce;}
+    ByteSpan GetCSRNonce() const { return mCSRNonce; }
     RendezvousParameters & SetPeerAddress(const Transport::PeerAddress & peerAddress)
     {
         mPeerAddress = peerAddress;
@@ -72,8 +72,8 @@ public:
 
     RendezvousParameters & SetCSRNonce(ByteSpan csrNonce)
     {
-       mCSRNonce = csrNonce;
-       return *this;
+        mCSRNonce = csrNonce;
+        return *this;
     }
 
     bool HasDiscriminator() const { return mDiscriminator <= kMaxRendezvousDiscriminatorValue; }
@@ -102,7 +102,7 @@ public:
     }
 
     bool HasPASEVerifier() const { return mHasPASEVerifier; }
-    bool HasCSRNonce() const {return mHasCSRNonce;}
+    bool HasCSRNonce() const { return mHasCSRNonce; }
     const PASEVerifier & GetPASEVerifier() const { return mPASEVerifier; }
     RendezvousParameters & SetPASEVerifier(PASEVerifier & verifier)
     {
@@ -149,10 +149,9 @@ private:
     uint16_t mDiscriminator = UINT16_MAX; ///< the target peripheral discriminator
     ByteSpan mCSRNonce;                   ///< CSR Nonce passed by the commissioner
 
-
     PASEVerifier mPASEVerifier;
     bool mHasPASEVerifier = false;
-    bool mHasCSRNonce = false;           // Set to true only if SetCSRNonce is called.
+    bool mHasCSRNonce     = false; // Set to true only if SetCSRNonce is called.
 
     RendezvousAdvertisementDelegate * mAdvDelegate = nullptr;
 
